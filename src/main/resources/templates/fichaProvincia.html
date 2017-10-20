@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8"/>
+	<title>Titulo</title>
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous"/>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+</head>
+<body>
+
+	<h1 class="jumbotron text-center"><span th:text="${resultado.nombre}"></span></h1>
+	
+	<table class="table table-bordered text-center">
+		<tr>
+			<td class="table-success "><b>ID</b></td>
+			<td class="table-success"><b>Código Postal</b></td>
+			<td class="table-success"><b>Nombre</b></td>
+			<td class="table-success"><b>Bandera</b></td>
+			
+						
+		</tr>
+		<tr > 
+			<td> <span th:text="${resultado.id}"></span></td>
+			<td> <span th:text="${resultado.nombre}"></span> </td>
+			<td> <span th:text="${resultado.cod}"></span> </td>
+			<td><img  width="80" th:src="${resultado.bandera}"/></td>
+			
+			
+		</tr>	
+	</table>
+	
+	
+	 
+  
+	<div><a href="/">Volver al index</a></div>	
+	<div><a href="/provincias">Volver al listado</a></div>
+
+</body>
+</html>

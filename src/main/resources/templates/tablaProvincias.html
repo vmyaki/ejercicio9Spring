@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous"/>
+	<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"/>
+	<title></title>
+</head>
+<body>
+
+	<h1 class="jumbotron text-center"><b>Listado de Provincias</b> </h1>
+	
+	<h5 class="text-center">Nº de provincias <span data-th-text="${resultado.size()}" class="badge badge-info badge-pill"></span></h5>
+	<br/>
+	
+	
+	<table class="table table-bordered text-center">
+		<tr>
+			<td class="table-success "><b>ID</b></td>
+			<td class="table-success"><b>Código Postal</b></td>
+			<td class="table-success"><b>Nombre</b></td>
+			<td class="table-success"><b>Enlace Google Maps</b></td>
+			<td class="table-success"><b>Enlace Wikipedia</b></td>
+			<td class="table-success"><b>Más info</b></td>
+						
+		</tr>
+		<tr th:each="provincia : ${resultado}"> <!--elemento : array(colección) /el elemento puede ser el nombre k queramos-->
+			<td> <span th:text="${provincia.id}"></span> </td>
+			<td> <span th:text="${provincia.cod}"></span> </td>
+			<td> <span th:text="${provincia.nombre}"></span> </td>
+			<td><a th:href="@{'https://www.google.es/maps?q=' + ${provincia.nombre}}"><i class="fa fa-map-marker" aria-hidden="true"></i></a></td>
+			<td><a th:href="@{'https://es.wikipedia.org/wiki/' + ${provincia.nombre}}"><i class="fa fa-wikipedia-w" aria-hidden="true"></i></a> </td>
+			<td><a th:href="@{'provincia/id/' +${provincia.id}}"><i class="fa fa-info-circle fa-spin" aria-hidden="true"></i></a></td>
+			
+		</tr>	
+	</table>
+	
+	<div><a href="/">Volver al index</a></div>
+	
+	
+	
+	
+	
+</body>
+</html>
